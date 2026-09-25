@@ -1,0 +1,896 @@
+:root {
+    --color-peach: #F6DFBD;
+    --color-darker_peach: #ecd3b0;
+    --color-flame: #ee5934;
+    --color-turquoise: #65B6B5;
+    --color-sienna: #eb9846;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    height: 100%;
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.8rem;
+    background-color: var(--color-peach);
+    position: relative;
+}
+
+body.game-open {
+    overflow-y: hidden;
+}
+
+a {
+    text-decoration: none;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    color: var(--color-flame);
+    margin: 0;
+}
+
+
+
+.main {
+    min-height: calc(min(100dvh, 920px) - 52px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 8rem;
+}
+
+.main-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.main-svg svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.main-svg path {
+    stroke: var(--color-sienna);
+}
+
+.main-container {
+    position: relative;
+    z-index: 1;
+    border: solid 4px var(--color-flame);
+    box-shadow: 3px 3px 0 var(--color-flame),
+                2px 2px 0 var(--color-flame),
+                1px 1px 0 var(--color-flame);
+    padding: 6rem 10rem;
+    height: 100%;
+    margin: 15rem 0 1rem 0;
+    border-radius: 3px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-title {
+    color: var(--color-flame);
+    letter-spacing: .5rem;
+    font-size: 5.5rem;
+    margin: 1rem 0;
+    font-weight: 800;
+    text-align: center;
+}
+
+.main-sub_title {
+    color: var(--color-turquoise);
+    font-size: 2rem;
+    letter-spacing: .5rem;
+    font-weight: 700;
+}
+
+.main-text {
+    font-family: 'DM Serif Text', serif;
+    color: var(--color-flame);
+    text-align: center;
+    margin: 1.5rem 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.main-info {
+    color: var(--color-flame);
+    text-align: center;
+    margin: 3rem 0 4rem 0;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+.main-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-play_button {
+    color: var(--color-peach);
+    padding: 1.5rem 10rem;
+    font-weight: 800;
+    font-size: 3rem;
+    letter-spacing: 5px;
+    background-color: var(--color-sienna);
+    border-radius: 2px;
+    border: solid 4px var(--color-flame);
+    box-shadow: 3px 3px 0 var(--color-flame),
+                2px 2px 0 var(--color-flame),
+                1px 1px 0 var(--color-flame);
+    margin-bottom: 3rem;
+    transition: all .1s ease-in;
+    cursor: pointer;
+    text-align: center;
+}
+
+.main-play_button:hover {
+    box-shadow: 0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 1px 3px var(--color-peach),
+                0px 0px 0 6px var(--color-sienna);
+    transform: translateX(3px);
+    transform: translateY(3px);
+}
+
+.main-explore_button {
+    color: var(--color-flame);
+    padding: 1.5rem;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: 1.5px;
+    background-color: var(--color-peach);
+    border: solid 4px var(--color-flame);
+    box-shadow: 3px 3px 0 var(--color-flame),
+                2px 2px 0 var(--color-flame),
+                1px 1px 0 var(--color-flame);
+    transition: all .1s ease-in;
+    cursor: pointer;
+}
+
+.main-explore_button:hover {
+    box-shadow: 0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 1px 2px var(--color-peach),
+                0px 0px 0 4px var(--color-sienna);
+    transform: translateX(3px);
+    transform: translateY(3px);
+}
+
+
+
+
+
+
+
+/*-----  HEADER  -----*/
+
+.header {
+    border-bottom: solid 3px var(--color-flame);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: #f6dfbdd1;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.header-content {
+    max-width: 120rem;
+    width: min(95%, 120rem);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+}
+
+.header-title {
+    color: var(--color-flame);
+    text-shadow: 3px 3px 0 rgba(101, 182, 181, 0.4);
+    font-weight: 600;
+    font-size: 3.5rem;
+    letter-spacing: .5rem;
+    padding-right: 2rem;
+    border-right: solid 3px var(--color-flame);
+    transition: all .1s ease-in;
+}
+
+.header-title:hover {
+    transform: translateX(3px);
+    transform: translateY(3px);
+}
+
+.header-info {
+    display: flex;
+    gap: 4rem;
+    color: var(--color-flame);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.header-game_info {
+    padding: 1rem 2rem;
+    border: solid 2px var(--color-flame);
+    box-shadow: 3px 3px 0 var(--color-flame),
+                2px 2px 0 var(--color-flame),
+                1px 1px 0 var(--color-flame);
+    border-radius: 2px;
+    width: 14rem;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+/*-----  LEVELS  -----*/
+
+.levels {
+    background-color: var(--color-darker_peach);
+    margin: 4rem 0;
+    padding: 7rem 0;
+    border-top: solid 4px var(--color-flame);
+    border-bottom: solid 4px var(--color-flame);
+    scroll-margin-top: 8rem;
+}
+
+.levels-container {
+    max-width: 120rem;
+    width: min(95%, 120rem);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.levels-about {
+   display: flex;
+   flex-direction: column;
+   max-width: 65rem;
+}
+
+.levels-text_pick {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-sienna);
+    letter-spacing: 1px;
+}
+
+.levels-title {
+    font-family: 'DM Serif Text', serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 1.5rem 0 2rem 0;
+    color: var(--color-flame);
+    letter-spacing: 1px;
+    text-decoration: underline;
+}
+
+.levels-info {
+    font-family: 'DM Serif Text', serif;
+    font-size: 1.7rem;
+    font-weight: 200;
+    color: var(--color-sienna);
+    letter-spacing: 1px;
+}
+
+.levels-full-container {
+    border: solid 4px var(--color-flame);
+    box-shadow: 3px 3px 0 var(--color-flame),
+                2px 2px 0 var(--color-flame),
+                1px 1px 0 var(--color-flame);
+    padding: 6rem 8rem;
+    border-radius: 3px;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.levels-info_title {
+    color: var(--color-flame);
+    font-weight: 400;
+    font-size: 3rem;
+    border-bottom: solid 1px var(--color-sienna);
+    font-family: 'DM Serif Text', serif;
+}
+
+.levels-select_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.levels-select {
+    text-align: center;
+    color: var(--color-flame);
+    padding: 1.5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    background-color: var(--color-peach);
+    border: solid 4px var(--color-flame);
+    box-shadow: 3px 3px 0 var(--color-flame),
+                2px 2px 0 var(--color-flame),
+                1px 1px 0 var(--color-flame);
+    transition: all .1s ease-in;
+    cursor: pointer;
+}
+
+.levels-select:hover {
+    box-shadow: 0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 1px 2px var(--color-peach),
+                0px 0px 0 4px var(--color-sienna);
+    transform: translateX(3px);
+    transform: translateY(3px);
+}
+
+
+
+
+
+
+
+
+
+
+
+/*------ GAME CONTAINER -------*/
+
+.game {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    background-color: #0f0f0f23;
+}
+
+.game-container {
+    max-width: 120rem;
+    width: min(95%, 120rem);
+    border: solid 4px var(--color-flame);
+    box-shadow: 3px 3px 0 var(--color-flame),
+                2px 2px 0 var(--color-flame),
+                1px 1px 0 var(--color-flame);
+    padding: 2rem 1rem;
+    background-color: var(--color-peach);
+    height: 70vh;
+    padding: 2rem 6rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+
+.game-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-flame);
+    border-bottom: solid 3px var(--color-flame);
+    padding-bottom: 1rem;
+}
+
+.game-level_title {
+    text-shadow: 3px 3px 0 var(--color-flame);
+    color: var(--color-peach);
+    border-right: solid 3px var(--color-flame);
+    padding: 0 1.5rem;
+    margin: 0;
+}
+
+.game-table {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.game-options {
+    display: flex;
+    gap: 2rem;
+}
+
+.game-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    background-color: var(--color-peach);
+    border: solid 4px var(--color-flame);
+    box-shadow: 3px 3px 0 var(--color-flame),
+                2px 2px 0 var(--color-flame),
+                1px 1px 0 var(--color-flame);
+    transition: all .1s ease-in;
+    cursor: pointer;
+}
+
+.game-icons:hover {
+    box-shadow: 0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 1px 2px var(--color-peach),
+                0px 0px 0 4px var(--color-sienna);
+    transform: translateX(3px);
+    transform: translateY(3px);
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    border: solid 4px var(--color-flame);
+    box-shadow: 3px 3px 0 var(--color-flame),
+                2px 2px 0 var(--color-flame),
+                1px 1px 0 var(--color-flame);
+    padding: 2rem 1rem;
+    background-color: var(--color-peach);
+    cursor: pointer;
+    height: 10rem;
+    width: 8rem;
+    transform-style: preserve-3d;
+    transition: all .1s ease-in;
+    position: relative;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 1px 2px var(--color-peach),
+                0px 0px 0 4px var(--color-sienna);
+}
+
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-peach);
+}
+
+.back {
+    backface-visibility: hidden;
+}
+
+.front {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shown {
+    transform: rotateY(180deg);
+}
+
+.success {
+    pointer-events: none;
+    user-select: none;
+    cursor: default;
+    transform: translateY(3rem);
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+/*-------- RESULTADOS --------*/
+.lost,
+.win {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    background-color: #0f0f0f34;
+}
+
+.result-container {
+    max-width: 60rem;
+    width: min(95%, 60rem);
+    border: solid 4px var(--color-flame);
+    box-shadow: 3px 3px 0 var(--color-flame),
+                2px 2px 0 var(--color-flame),
+                1px 1px 0 var(--color-flame);
+    padding: 3rem;
+    background-color: var(--color-peach);
+    display: flex;
+    flex-direction: column;
+}
+
+.result-head {
+    border-bottom: solid 3px var(--color-flame);
+    padding-bottom: 1rem;
+    margin-bottom: 8rem;
+}
+
+.result-level {
+    margin: 0;
+    color: var(--color-flame);
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+    letter-spacing: 1px;
+}
+
+.result-cards {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-sienna);
+    letter-spacing: 1px;
+}
+
+.result-title {
+    margin: 4rem 0 1rem 0;
+    text-align: center;
+    color: var(--color-flame);
+    letter-spacing: 3px;
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+
+.result-text {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: 'DM Serif Text', serif;
+    letter-spacing: 1px;
+    color: var(--color-flame);
+}
+
+.lost-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15rem 0 0 0;
+    gap: 1.5rem;
+    border-top: solid 3px var(--color-flame);
+    padding-top: 1.5rem;
+}
+
+.result-button {
+    color: var(--color-peach);
+    padding: 0.5rem 0;
+    width: 100%;
+    font-weight: 800;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    background-color: var(--color-sienna);
+    border-radius: 2px;
+    border: solid 4px var(--color-flame);
+    box-shadow: 3px 3px 0 var(--color-flame),
+                2px 2px 0 var(--color-flame),
+                1px 1px 0 var(--color-flame);
+    transition: all .1s ease-in;
+    cursor: pointer;
+    text-align: center;
+}
+
+.result-button:hover {
+    box-shadow: 0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 1px 3px var(--color-peach),
+                0px 0px 0 6px var(--color-sienna);
+    transform: translateX(3px);
+    transform: translateY(3px);
+}
+
+
+
+
+
+
+/*-------- FOOTER ----------*/
+.footer {
+    border-bottom: solid 4px var(--color-flame);
+}
+
+.footer-container {
+    max-width: 100rem;
+    width: min(95%, 100rem);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-title {
+    margin: 2rem 0 1rem 0;
+    color: var(--color-flame);
+    font-weight: 700;
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+}
+
+.footer-text {
+    color: var(--color-sienna);
+    letter-spacing: 3px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 5rem;
+    border-bottom: 1px solid var(--color-sienna);
+}
+
+.footer-own {
+    margin: 0;
+    color: var(--color-flame);
+    letter-spacing: 1px;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.footer-own_email {
+    color: var(--color-sienna);
+    letter-spacing: 1px;
+    margin: 1rem 0 6rem 0;
+    border-bottom: 1px solid var(--color-sienna);
+    font-family: 'DM Serif Text', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.footer-media {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-media_link {
+    text-align: center;
+    color: var(--color-flame);
+    padding: 1.5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    background-color: var(--color-peach);
+    border: solid 4px var(--color-flame);
+    box-shadow: 3px 3px 0 var(--color-flame),
+                2px 2px 0 var(--color-flame),
+                1px 1px 0 var(--color-flame);
+    transition: all .1s ease-in;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.footer-media_link:hover {
+    box-shadow: 0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 0 var(--color-flame),
+                0px 0px 1px 2px var(--color-peach),
+                0px 0px 0 4px var(--color-sienna);
+    transform: translateX(3px);
+    transform: translateY(3px);
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--color-flame);
+    background-color: var(--color-darker_peach);
+    border-top: solid 1px var(--color-sienna);
+    padding: 1rem;
+    margin-top: 6rem;
+    letter-spacing: 2px;
+}
+
+
+
+
+
+
+/*--------- VICTORY --------*/
+.victory {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    background-color: #0f0f0f34;
+}
+
+.victory-container {
+    max-width: 60rem;
+    width: min(95%, 60rem);
+    border: solid 4px var(--color-flame);
+    box-shadow: 0px 0px 0 1px var(--color-flame),
+                0px 0px 0 4px var(--color-peach),
+                0px 0px 0 8px var(--color-flame);
+    padding: 3rem 4rem;
+    background-color: var(--color-peach);
+    display: flex;
+    flex-direction: column;
+}
+
+.stats-title {
+    margin: 8rem 0 1rem 0;
+    color: var(--color-flame);
+    border-bottom: solid 1px var(--color-sienna);
+}
+
+.stats-container {
+    width: 100%;
+}
+
+.stats-table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.stats-thead {
+    background-color: var(--color-sienna);
+    color: var(--color-peach);
+    font-size: 1.7rem;
+    font-weight: 900;
+    
+}
+
+.stats-th {
+    padding: .7rem;
+    border-bottom: solid 3px var(--color-flame);
+}
+
+.stats-tbody {
+    background-color: var(--color-darker_peach);
+    color: var(--color-flame);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.stats-td {
+    padding: 1rem 0;
+    border-bottom: solid 1px var(--color-sienna);
+}
+
+
+
+.show {
+    display: flex;
+}
+
+
+/*------ MEDIA QUERIES ------*/
+@media (max-width: 1024px) {
+    .game-table {
+        gap: 1rem;
+    }
+    .card {
+        padding: 1rem .5rem;
+    }
+    .game-container {
+        padding: 1rem;
+    }
+    .levels-select_container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .levels-full-container {
+        padding: 6rem 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 4rem 6rem;
+    }
+    .game-container {
+        height: 80vh;
+        margin-top: 12rem;
+    }
+    .card {
+        padding: 1rem .5rem;
+        height: 8rem;
+        width: 6rem;
+    }
+    .card-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .header-title {
+        font-weight: 700;
+        font-size: 2.2rem;
+        padding-right: .5rem;
+        letter-spacing: 1px;
+    }
+    .header-info {
+        gap: 1rem;
+    }
+    .header-game_info {
+        width: 10rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        padding: 1rem .5rem;
+    }
+    .levels-select_container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        height: 80vh;
+        margin-top: 12rem;
+        gap: 1.5rem;
+    }
+    .card {
+        height: 7rem;
+        width: 5rem;
+    }
+    .card-icon {
+        width: 36px;
+        height: 36px;
+    }
+    .main-container {
+        padding: 6rem 1rem;
+    }
+    .header-content {
+        flex-direction: column;
+    }
+    .header-title {
+        border-right: none;
+        border-bottom: solid 3px var(--color-flame);
+        font-weight: 600;
+    }
+    .header-info {
+        margin-top: 2rem;
+        gap: 3rem;
+    }
+    .levels-select_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
