@@ -476,6 +476,13 @@ h1 {
     transform-style: preserve-3d;
     transition: all .1s ease-in;
     position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.card img {
+    -webkit-user-drag: none;
 }
 
 .card:hover {

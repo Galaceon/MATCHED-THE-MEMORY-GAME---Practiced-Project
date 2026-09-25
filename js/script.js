@@ -225,6 +225,8 @@
 
 			let cardBack = document.createElement('img');
 			cardBack.src = "../SVGs/card-back.svg";
+			cardBack.draggable = false;
+			frontSide.draggable = false;
 
 			card.classList.add("card");
 
