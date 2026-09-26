@@ -57,6 +57,34 @@
 
 	let group1 = [];
 	let group2 = [];
+	const imagesBg = [];
+
+	function preload(...imagePaths) {
+		imagePaths.forEach((path) => {
+			const image = new Image();
+			image.src = path;
+			imagesBg.push(image);
+		});
+	}
+
+	preload(
+		"../SVGs/card-back.svg",
+		"../SVGs/symbol-1.svg",
+		"../SVGs/symbol-2.svg",
+		"../SVGs/symbol-3.svg",
+		"../SVGs/symbol-4.svg",
+		"../SVGs/symbol-5.svg",
+		"../SVGs/symbol-6.svg",
+		"../SVGs/symbol-7.svg",
+		"../SVGs/symbol-8.svg",
+		"../SVGs/symbol-9.svg",
+		"../SVGs/symbol-10.svg",
+		"../SVGs/symbol-11.svg",
+		"../SVGs/symbol-12.svg",
+		"../SVGs/symbol-13.svg",
+		"../SVGs/symbol-14.svg",
+		"../SVGs/symbol-15.svg"
+	);
 
 
 	// GAME START EVENTS
